@@ -4,7 +4,6 @@ import com.joaomeleski.reactivereviews.service.ReviewService;
 import com.joaomeleski.reactivereviews.service.dto.request.ReviewRequest;
 import com.joaomeleski.reactivereviews.service.dto.response.ReviewResponse;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -26,8 +25,8 @@ public class ReviewController {
         return reviewService.findAllReviews();
     }
 
-    @PostMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-    public Mono<ReviewResponse> handlePostReviewRequest(@RequestPart ReviewRequest reviewRequest) {
+    @PostMapping
+    public Mono<ReviewResponse> handlePostReviewRequest(@RequestBody ReviewRequest reviewRequest) {
         return reviewService.createReview(Mono.just(reviewRequest));
     }
 }
