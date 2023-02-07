@@ -1,0 +1,12 @@
+amazon:
+  s3:
+    bucket-name: review-bucket-tcc
+    endpoint: https://review-bucket-tcc.s3.sa-east-1.amazonaws.com/
+    access-key: ${ACCESS_KEY_AWS}
+    secret-key: ${SECRET_KEY_AWS}
+
+spring:
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 10MB
